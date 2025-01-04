@@ -22,7 +22,7 @@ class HeadingWidget extends StatelessWidget {
         horizontal: 5,
       ),
       child: Padding(
-        padding: EdgeInsets.all(8),
+        padding: const EdgeInsets.all(8),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -36,7 +36,7 @@ class HeadingWidget extends StatelessWidget {
                 ),
                 Text(
                   headingSubTitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 12,
                       color: Colors.grey,
                       fontWeight: FontWeight.w500),
@@ -44,7 +44,7 @@ class HeadingWidget extends StatelessWidget {
               ],
             ),
             GestureDetector(
-              onTap: onTab,
+              onTap:onTab,
               child: Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
@@ -53,7 +53,7 @@ class HeadingWidget extends StatelessWidget {
                         Border.all(color: AppConstant.appSceColor, width: 1.5)),
                 child: Text(
                   buttonText,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 12,
                       color: AppConstant.appSceColor),
