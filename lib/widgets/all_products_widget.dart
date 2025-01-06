@@ -41,11 +41,11 @@ class AllProductsWidget extends StatelessWidget {
                 child: GridView.builder(
                     shrinkWrap: true,
                     gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 1,
-                        childAspectRatio: 0.8,
-                        crossAxisCount: 2),
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            mainAxisSpacing: 1,
+                            crossAxisSpacing: 1,
+                            childAspectRatio: 0.8,
+                            crossAxisCount: 2),
                     itemCount: snapShot.data!.docs.length,
                     itemBuilder: (context, index) {
                       QueryDocumentSnapshot data = snapShot.data!.docs[index];
@@ -64,8 +64,9 @@ class AllProductsWidget extends StatelessWidget {
                           updatedAt: data['updatedAt']);
                       return GestureDetector(
                         onTap: () {
-                          Get.to(() =>  ProductDetailScreen(productModel:productModel));
-                              },
+                          Get.to(() =>
+                              ProductDetailScreen(productModel: productModel));
+                        },
                         child: FillImageCard(
                           borderRadius: 20,
                           width: Get.width / 2.4,
@@ -74,9 +75,9 @@ class AllProductsWidget extends StatelessWidget {
                               productModel.productImages[index]),
                           title: Center(
                               child: Text(
-                                productModel.productName,
-                                style: const TextStyle(fontSize: 12),
-                              )),
+                            productModel.productName,
+                            style: const TextStyle(fontSize: 12),
+                          )),
                           footer: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -91,8 +92,7 @@ class AllProductsWidget extends StatelessWidget {
                                 style: const TextStyle(
                                     color: AppConstant.appSceColor,
                                     fontSize: 10,
-                                    decoration: TextDecoration.lineThrough
-                                ),
+                                    decoration: TextDecoration.lineThrough),
                               )
                             ],
                           ),

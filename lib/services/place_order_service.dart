@@ -10,10 +10,10 @@ import 'package:get/get.dart';
 
 void placeOrder(
     {required BuildContext context,
-      required String customerToken,
-      required String customerName,
-      required String customerPhone,
-      required String customerAddress}) async {
+    required String customerToken,
+    required String customerName,
+    required String customerPhone,
+    required String customerAddress}) async {
   final user = FirebaseAuth.instance.currentUser;
   final storeData = FirebaseFirestore.instance;
   try {
@@ -83,10 +83,10 @@ void placeOrder(
       Get.snackbar('Orders Conformed', 'Thank you for your order! ',
           backgroundColor: AppConstant.appMainColor,
           colorText: AppConstant.appTextColor,
-          duration:const Duration(seconds: 5));
+          duration: const Duration(seconds: 5));
     }
     EasyLoading.dismiss();
-    Get.offAll(()=>const MainScreen());
+    Get.offAll(() => const MainScreen());
   } catch (e) {
     EasyLoading.dismiss();
   }

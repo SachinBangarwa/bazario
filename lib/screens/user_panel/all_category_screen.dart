@@ -28,8 +28,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
           style: TextStyle(color: AppConstant.appTextColor),
         ),
       ),
-      body:
-      FutureBuilder(
+      body: FutureBuilder(
           future: FirebaseFirestore.instance.collection('categories').get(),
           builder: (context, snapShot) {
             if (snapShot.hasError) {
@@ -86,7 +85,6 @@ class _AllCategoryScreenState extends State<AllCategoryScreen> {
                                 categoriesModel.categoryName,
                                 style: const TextStyle(fontSize: 12),
                               )),
-
                             )
                           ],
                         ),

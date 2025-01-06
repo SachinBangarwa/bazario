@@ -12,7 +12,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Admin Panel'),
+        title: const Text('Admin Panel'),
       ),
     );
   }

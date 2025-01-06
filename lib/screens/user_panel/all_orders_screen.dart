@@ -1,15 +1,11 @@
 import 'package:bazario/controllers/cart_price_controller.dart';
-import 'package:bazario/models/cart_model.dart';
 import 'package:bazario/models/order_model.dart';
 import 'package:bazario/screens/user_panel/add_review_screen.dart';
-import 'package:bazario/screens/user_panel/checkout_screen.dart';
 import 'package:bazario/utils/app_constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:flutter_swipe_action_cell/core/cell.dart';
 import 'package:get/get.dart';
 
 class AllOrdersScreen extends StatefulWidget {
@@ -120,21 +116,23 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                             style: TextStyle(color: Colors.red))
                                   ],
                                 ),
-                                trailing: orderModel.isSale? MaterialButton(
-                                    padding: const EdgeInsets.all(4),color: Colors.blue.withOpacity(0.4),
-                                    minWidth: 8.0,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10)),
-                                    onPressed: () {
-                                      Get.to(()=>AddReviewScreen(oderModel:orderModel));
-                                    },
-                                    child: const Text(
-                                      'Review',
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                ):const SizedBox()
-                            ),
+                                trailing: orderModel.isSale
+                                    ? MaterialButton(
+                                        padding: const EdgeInsets.all(4),
+                                        color: Colors.blue.withOpacity(0.4),
+                                        minWidth: 8.0,
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10)),
+                                        onPressed: () {
+                                          Get.to(() => AddReviewScreen(
+                                              oderModel: orderModel));
+                                        },
+                                        child: const Text(
+                                          'Review',
+                                          style: TextStyle(color: Colors.black),
+                                        ))
+                                    : const SizedBox()),
                           );
                         },
                       ),

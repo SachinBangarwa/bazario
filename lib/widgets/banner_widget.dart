@@ -19,8 +19,7 @@ class _BannerWidgetState extends State<BannerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() =>
-        CarouselSlider(
+    return Obx(() => CarouselSlider(
           items: bannersController.bannerUrls
               .map((images) => ClipRRect(
                     borderRadius: BorderRadius.circular(10),
@@ -32,7 +31,8 @@ class _BannerWidgetState extends State<BannerWidget> {
                           child: CupertinoActivityIndicator(),
                         ),
                       ),
-                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                       fit: BoxFit.cover,
                       width: Get.width - 10,
                     ),

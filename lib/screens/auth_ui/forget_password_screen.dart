@@ -1,6 +1,3 @@
-import 'package:bazario/controllers/sign_in_controller.dart';
-import 'package:bazario/screens/auth_ui/sign_up_screen.dart';
-import 'package:bazario/screens/user_panel/main_screen.dart';
 import 'package:bazario/utils/app_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
@@ -17,7 +14,8 @@ class ForgetPasswordScreen extends StatefulWidget {
 }
 
 class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
-  final ForgetPasswordController forgetPasswordController = Get.put(ForgetPasswordController());
+  final ForgetPasswordController forgetPasswordController =
+      Get.put(ForgetPasswordController());
   final userEmailController = TextEditingController();
 
   @override
@@ -37,10 +35,10 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             children: [
               isKeyBoardVisible
                   ? const Text(
-                'Welcome to my app',
-                style:
-                TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-              )
+                      'Welcome to my app',
+                      style:
+                          TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                    )
                   : Lottie.asset('assets/images/splash-icon.json'),
               SizedBox(
                 height: Get.width / 8,
@@ -64,7 +62,6 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: Get.width / 8,
               ),
@@ -76,7 +73,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                       colorText: AppConstant.appTextColor,
                       backgroundColor: AppConstant.appSceColor);
                 } else {
-                  forgetPasswordController.forgetPasswordCloud(userEmailController.text);
+                  forgetPasswordController
+                      .forgetPasswordCloud(userEmailController.text);
                 }
               })
             ],
@@ -87,13 +85,13 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   }
 
   Widget buildSignInWithCloud(
-      String name,
-      VoidCallback onPressed,
-      ) {
+    String name,
+    VoidCallback onPressed,
+  ) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
             shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             backgroundColor: AppConstant.appSceColor,
             padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 8)),
         onPressed: onPressed,

@@ -86,7 +86,7 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
             color: Colors.yellow.withOpacity(0.8),
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            onPressed: () async{
+            onPressed: () async {
               EasyLoading.show(status: 'Please wait..');
               final user = FirebaseAuth.instance.currentUser;
               ReviewModel reviewModel = ReviewModel(
@@ -98,14 +98,14 @@ class _AddReviewScreenState extends State<AddReviewScreen> {
                 rating: productRating.toString(),
                 createdAt: DateTime.now(),
               );
-           await   FirebaseFirestore.instance
+              await FirebaseFirestore.instance
                   .collection('products')
                   .doc(widget.oderModel.productId)
                   .collection('reviews')
                   .doc(user!.uid)
                   .set(reviewModel.toMap());
-           feedBackController.clear();
-           EasyLoading.dismiss();
+              feedBackController.clear();
+              EasyLoading.dismiss();
             },
             child: const Text('Done'),
           ),

@@ -203,7 +203,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
   void _handlePaymentError(PaymentFailureResponse response) {
     debugPrint('Payment Error: ${response.code} | ${response.message}');
     Get.snackbar('Payment Failed', response.message ?? 'An error occurred',
-        backgroundColor: AppConstant.appMainColor,colorText: Colors.white);
+        backgroundColor: AppConstant.appMainColor, colorText: Colors.white);
   }
 
   void _handleExternalWallet(ExternalWalletResponse response) {

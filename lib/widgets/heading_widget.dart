@@ -44,7 +44,7 @@ class HeadingWidget extends StatelessWidget {
               ],
             ),
             GestureDetector(
-              onTap:onTab,
+              onTap: onTab,
               child: Container(
                 padding: const EdgeInsets.all(8.0),
                 decoration: BoxDecoration(

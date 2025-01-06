@@ -1,4 +1,3 @@
-
 import 'package:bazario/screens/user_panel/all_orders_screen.dart';
 import 'package:bazario/utils/app_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +18,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.zero,
-      child: Drawer(width: Get.width/1.4,
+      child: Drawer(
+        width: Get.width / 1.4,
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(20),
@@ -72,7 +72,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 ),
                 callBack: () {
                   Get.back();
-                  Get.to(()=>const AllOrdersScreen());
+                  Get.to(() => const AllOrdersScreen());
                 }),
             buildListTileHandler(
                 title: 'Contact',

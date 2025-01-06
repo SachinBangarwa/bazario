@@ -79,7 +79,8 @@ class _AllCategoryScreenState extends State<SingleCategoryProductScreen> {
                           createdAt: data['createdAt'],
                           updatedAt: data['updatedAt']);
                       return GestureDetector(
-                        onTap: ()=>Get.to(()=>ProductDetailScreen(productModel: productModel)),
+                        onTap: () => Get.to(() =>
+                            ProductDetailScreen(productModel: productModel)),
                         child: Row(
                           children: [
                             FillImageCard(

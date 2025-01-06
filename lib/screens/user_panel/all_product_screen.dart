@@ -23,10 +23,8 @@ class AllProductScreen extends StatelessWidget {
           style: TextStyle(color: AppConstant.appTextColor),
         ),
       ),
-     body:  FutureBuilder(
-          future: FirebaseFirestore.instance
-              .collection('products')
-              .get(),
+      body: FutureBuilder(
+          future: FirebaseFirestore.instance.collection('products').get(),
           builder: (context, snapShot) {
             if (snapShot.hasError) {
               return const Center(
@@ -47,11 +45,11 @@ class AllProductScreen extends StatelessWidget {
                     shrinkWrap: true,
                     physics: const BouncingScrollPhysics(),
                     gridDelegate:
-                    const SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 1,
-                        crossAxisSpacing: 1,
-                        childAspectRatio: 1,
-                        crossAxisCount: 2),
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            mainAxisSpacing: 1,
+                            crossAxisSpacing: 1,
+                            childAspectRatio: 1,
+                            crossAxisCount: 2),
                     itemCount: snapShot.data!.docs.length,
                     itemBuilder: (context, index) {
                       QueryDocumentSnapshot data = snapShot.data!.docs[index];
@@ -70,22 +68,25 @@ class AllProductScreen extends StatelessWidget {
                           updatedAt: data['updatedAt']);
                       return GestureDetector(
                         onTap: () {
-                          Get.to(() =>  ProductDetailScreen(productModel:productModel));
+                          Get.to(() =>
+                              ProductDetailScreen(productModel: productModel));
                         },
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Row(
                             children: [
-                              FillImageCard(color: Colors.teal.withOpacity(0.2),
+                              FillImageCard(
+                                color: Colors.teal.withOpacity(0.2),
                                 borderRadius: 20,
                                 width: Get.width / 2.4,
                                 heightImage: Get.height / 10,
                                 imageProvider: CachedNetworkImageProvider(
-                                    productModel.productImages[0],),
-                                title:  Text(
-                                      productModel.productName,
-                                      style: const TextStyle(fontSize: 12),
-                                    ),
+                                  productModel.productImages[0],
+                                ),
+                                title: Text(
+                                  productModel.productName,
+                                  style: const TextStyle(fontSize: 12),
+                                ),
                                 footer: Row(
                                   children: [
                                     Text(
@@ -98,8 +99,9 @@ class AllProductScreen extends StatelessWidget {
                                       productModel.fullPrice,
                                       style: const TextStyle(
                                           color: AppConstant.appSceColor,
-                                          fontSize: 10,decoration: TextDecoration.lineThrough
-                                      ),
+                                          fontSize: 10,
+                                          decoration:
+                                              TextDecoration.lineThrough),
                                     )
                                   ],
                                 ),
@@ -117,4 +119,3 @@ class AllProductScreen extends StatelessWidget {
     );
   }
 }
-

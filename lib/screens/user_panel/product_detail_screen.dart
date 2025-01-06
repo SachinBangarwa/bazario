@@ -124,7 +124,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(right: 10,left: 2),
+                      padding: const EdgeInsets.only(right: 10, left: 2),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -132,7 +132,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 rating: calculateProductRatingController
                                     .averageRating.value,
                                 direction: Axis.horizontal,
-                            itemSize: 25.0,
+                                itemSize: 25.0,
                                 itemCount: 5,
                                 itemPadding:
                                     const EdgeInsets.symmetric(horizontal: 4.0),
@@ -145,7 +145,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 calculateProductRatingController
                                     .averageRating.value
                                     .toStringAsFixed(1),
-                                style: const TextStyle(fontSize: 18,fontWeight: FontWeight.bold),
+                                style: const TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold),
                               )),
                         ],
                       ),
@@ -215,7 +216,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     } else if (snapShot.data != null) {
                       return ListView.builder(
                           shrinkWrap: true,
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           itemCount: snapShot.data!.docs.length,
                           itemBuilder: (context, index) {
                             final data = snapShot.data!.docs[index];
@@ -237,8 +238,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                 title: Text(reviewModel.customerName),
                                 subtitle: Text(reviewModel.feedback),
                                 trailing: Text(
-                                  'Rt:' + reviewModel.rating,
-                                  style: TextStyle(fontSize: 16),
+                                  'Rt:${reviewModel.rating}',
+                                  style: const TextStyle(fontSize: 16),
                                 ),
                               ),
                             );
