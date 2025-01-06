@@ -1,4 +1,5 @@
 
+import 'package:bazario/screens/user_panel/all_orders_screen.dart';
 import 'package:bazario/utils/app_constant.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -69,7 +70,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   Icons.shopping_bag,
                   color: AppConstant.appTextColor,
                 ),
-                callBack: () {}),
+                callBack: () {
+                  Get.back();
+                  Get.to(()=>const AllOrdersScreen());
+                }),
             buildListTileHandler(
                 title: 'Contact',
                 leading: const Icon(

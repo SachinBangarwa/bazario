@@ -29,7 +29,7 @@ class UserModel {
    required this.createdOn,
   });
 
-  // Convert from JSON
+
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       uId: json['uId'] as String,
@@ -48,7 +48,7 @@ class UserModel {
     );
   }
 
-  // Convert to JSON
+
   Map<String, dynamic> toJson() {
     return {
       'uId': uId,
