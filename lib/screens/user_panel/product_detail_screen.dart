@@ -51,7 +51,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     calculateProductRatingController.calculateRating();
   }

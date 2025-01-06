@@ -10,7 +10,6 @@ class CartPriceController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     fetchProductPrice();
   }

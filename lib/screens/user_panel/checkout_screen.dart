@@ -36,14 +36,12 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _razorpay.clear();
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);
     _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);
