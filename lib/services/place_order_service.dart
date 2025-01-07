@@ -1,6 +1,7 @@
 import 'package:bazario/models/order_model.dart';
 import 'package:bazario/screens/user_panel/main_screen.dart';
 import 'package:bazario/services/generate_order_id_service.dart';
+import 'package:bazario/services/send_notification_service.dart';
 import 'package:bazario/utils/app_constant.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -79,6 +80,30 @@ void placeOrder(
               .doc(cartModel.productId.toString())
               .delete();
         }
+        storeData
+            .collection('notifications')
+            .doc(user.uid)
+            .collection('notifications')
+            .doc()
+            .set({
+          'title': 'Order SuccessFully placed ${cartModel.productName}',
+          'body': cartModel.productDescription,
+          'isSeen': false,
+          'createdAt': DateTime.now(),
+          'image': cartModel.productImages,
+          'fullPrice': cartModel.fullPrice,
+          'salePrice': cartModel.salePrice,
+          'isSale': cartModel.isSale,
+          'productId': cartModel.productId,
+        });
+        await SendNotificationService().sendNotification(
+          title: 'Order SuccessFully placed',
+          token: 'fVy0w8OdR_aXWUBOU9z6QF:APA91bFw7L98D8D0QtbJgWLewyWN0_'
+              'CnxdNXuyclFrr-9Gg6L-XzEe-Uuhc0nYAbCg_VWQ5eCIFwu4bT'
+              '-a1_KYEvK5Rwbsb4OHZTNlesPn5YvqLmb9qduYc',
+          body: 'This is a test notification',
+          data: {'screen': 'notification'},
+        );
       }
       Get.snackbar('Orders Conformed', 'Thank you for your order! ',
           backgroundColor: AppConstant.appMainColor,
